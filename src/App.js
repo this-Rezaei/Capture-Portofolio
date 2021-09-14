@@ -1,8 +1,10 @@
 import React from "react";
 import AboutUs from "./Pages/AboutUs";
+import GlobalStyle from "./components/GlobalStyle";
 const App = () => {
     return (
-        <div>
+        <div className="App">
+            <GlobalStyle />
             <AboutUs />
         </div>
     );
