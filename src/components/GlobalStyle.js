@@ -41,6 +41,11 @@ const GlobalStyle = createGlobalStyle`
  }
  h4{
     color: #23d997;
+    font-weight:bold;
+    font-size:2rem;
+    @media (max-width: 1400px) {
+      font-size: 1.5rem;
+   }
  }
  span{
    color: #23d997;
