@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
  }
  a{
     font-size: 1.1rem;
+    text-decoration: none;
  }
  p{
     padding: 3rem 0rem;
