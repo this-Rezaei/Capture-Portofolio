@@ -7,22 +7,26 @@ import OurWork from "./Pages/OurWork";
 import MovieDetails from "./Pages/MovieDetails";
 import styled from "styled-components";
 //Router
-
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
+//Animation
+import { AnimatePresence } from "framer-motion";
 const App = () => {
+    const location = useLocation();
     return (
         <div className="App">
             <GlobalStyle />
             <Nav />
-            <Switch>
-                <Route exact path="/" component={AboutUs} />
-                <Route exact path="/work" component={OurWork} />
-                <Route path="/content" component={ContentUs} />
-                <Route path="/work/:id" component={MovieDetails} />
-                <Route>
-                    <H1>Route Not Found</H1>
-                </Route>
-            </Switch>
+            <AnimatePresence exitBeforeEnter>
+                <Switch location={location} key={location.pathname}>
+                    <Route exact path="/" component={AboutUs} />
+                    <Route exact path="/work" component={OurWork} />
+                    <Route path="/content" component={ContentUs} />
+                    <Route path="/work/:id" component={MovieDetails} />
+                    <Route>
+                        <H1>Route Not Found</H1>
+                    </Route>
+                </Switch>
+            </AnimatePresence>
         </div>
     );
 };
