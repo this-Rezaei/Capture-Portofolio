@@ -4,7 +4,14 @@ import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { pageAnimation } from "./animation";
+import {
+    pageAnimation,
+    sliderContainer,
+    slider,
+    lineAnim,
+    fade,
+    photoAnim,
+} from "./animation";
 import { motion } from "framer-motion";
 const OurWork = () => {
     return (
@@ -14,11 +21,21 @@ const OurWork = () => {
             initial="hidden"
             animate="show"
         >
+            <motion.div variants={sliderContainer}>
+                <Frame1 variants={slider}></Frame1>
+                <Frame2 variants={slider}></Frame2>
+                <Frame3 variants={slider}></Frame3>
+                <Frame4 variants={slider}></Frame4>
+            </motion.div>
             <Movie>
-                <h2>Good Times</h2>
-                <div className="line"></div>
+                <motion.h2 variants={fade}>Good Times</motion.h2>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to="/work/good-times">
-                    <img src={goodtimes} alt="Good Times"></img>
+                    <motion.img
+                        variants={photoAnim}
+                        src={goodtimes}
+                        alt="Good Times"
+                    />
                 </Link>
             </Movie>
 
@@ -54,14 +71,36 @@ const Work = styled(motion.div)`
 const Movie = styled.div`
     padding-bottom: 10rem;
     .line {
-        height: 0.5rem;
-        background: #cccccc;
+        border-radius: 7px;
+        height: 0.4rem;
+        background: #23d997;
         margin-bottom: 3rem;
     }
     img {
         width: 100%;
         height: 70vh;
         object-fit: cover;
+        border-radius: 10px;
     }
+`;
+
+//Frame Anima
+const Frame1 = styled(motion.div)`
+    position: fixed;
+    left: 0;
+    top: 10%;
+    width: 100%;
+    height: 100vh;
+    background: #fffebf;
+    z-index: 2;
+`;
+const Frame2 = styled(Frame1)`
+    background: #ff8efb;
+`;
+const Frame3 = styled(Frame1)`
+    background: #8ed2ff;
+`;
+const Frame4 = styled(Frame1)`
+    background: #8effa0;
 `;
 export default OurWork;
