@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clock from "../img/clock.svg";
 import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
@@ -6,9 +6,19 @@ import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
 import { About, Image, Description } from "../Style";
 import styled from "styled-components";
+
+import { useScroll } from "./UseScroll";
+
+import { scrollReveal } from "../Pages/animation";
 const ServicesSection = () => {
+    const [element, controls] = useScroll();
     return (
-        <Services>
+        <Services
+            variants={scrollReveal}
+            initial="hidden"
+            animate={controls}
+            ref={element}
+        >
             <Description>
                 <h2>
                     High <span>Quality</span> services
