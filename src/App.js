@@ -6,6 +6,7 @@ import ContentUs from "./Pages/ContentUs";
 import OurWork from "./Pages/OurWork";
 import MovieDetails from "./Pages/MovieDetails";
 import styled from "styled-components";
+
 //Router
 import { Route, Switch, useLocation } from "react-router-dom";
 //Animation
